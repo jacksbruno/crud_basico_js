@@ -6,7 +6,6 @@ const listarClientes = () => {
 }
 
 const cadastrarClientes = (nome, email) => {
-  console.log('request',nome,email)
   return fetch('http://localhost:3000/profile', {
     method: 'POST',
     headers: {
@@ -22,7 +21,14 @@ const cadastrarClientes = (nome, email) => {
   })
 }
 
+const removeCliente = (id) => {
+  return fetch(`http://localhost:3000/profile/${id}`, {
+    method: 'DELETE'
+  })
+}
+
 export const clienteService = {
   listarClientes,
-  cadastrarClientes
+  cadastrarClientes,
+  removeCliente
 }
